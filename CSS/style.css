@@ -1,0 +1,168 @@
+
+    body,
+    html {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    table {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        /* height:30px; */
+    }
+
+    th span {
+        display: block;
+        background: greenyellow;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        margin-left: 10px;
+        margin-right: 10px;
+        transition: background 0.5s, margin-left 0.5s;
+    }
+
+    td one span {
+        display: block;
+        background: rgb(63, 238, 171);
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        margin-left: 10px;
+        margin-right: 10px;
+        transition: background 0.5s, margin-left 0.5s;
+        border-color: black;
+        border-width: 5px;
+        border-style: solid;
+        cursor: pointer;
+    }
+
+    td two span {
+        display: block;
+        background: rgb(129, 107, 107);
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        margin-left: 10px;
+        margin-right: 10px;
+        transition: background 0.5s, margin-left 0.5s;
+        border-color: black;
+        border-width: 5px;
+        border-style: solid;
+        cursor: pointer;
+    }
+
+    td three span {
+        display: block;
+        background: rgb(247, 187, 108);
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        margin-left: 10px;
+        margin-right: 10px;
+        transition: background 0.5s, margin-left 0.5s;
+        border-color: black;
+        border-width: 5px;
+        border-style: solid;
+        cursor: pointer;
+
+    }
+
+    td four span {
+        display: block;
+        background: #f5778a;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        margin-left: 10px;
+        margin-right: 10px;
+        transition: background 0.5s, margin-left 0.5s;
+        border-color: black;
+        border-width: 5px;
+        border-style: solid;
+        cursor: pointer;
+    }
+
+    td five span {
+        display: block;
+        background: #f2f3f4;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        margin-left: 10px;
+        margin-right: 10px;
+        transition: background 0.5s, margin-left 0.5s;
+        border-color: black;
+        border-width: 5px;
+        border-style: solid;
+        cursor: pointer;
+    }
+
+    button {
+        background-color: tomato;
+        height: 30px;
+        width: 60px;
+        border-radius: 20px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-style: italic;
+        color: white;
+        transition: background 0.5s;
+    }
+
+    button span {
+        display: block;
+        background: #999;
+        height: 26px;
+        width: 26px;
+        border-radius: 50%;
+        margin-left: -4px;
+        transition: background 0.5s, margin-left 0.5s;
+    }
+
+    .bar {
+        background: #ffefd5;
+    }
+
+    .active {
+        background: yellowgreen;
+    }
+
+    .active span {
+        background: red;
+        margin-left: 26px;
+    }
+
+    .type {
+        /* width: 200px; */
+        text-align: center;
+    }
+
+    .all_tables {
+        background: rgb(97, 204, 97);
+    }
+
+    .textbold{
+        font-weight: bold;
+    }
+
+    .on{
+        opacity: 1 !important;
+    }
+
+
+    .rain{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        transition: opacity 0.3s;
+    }
+
+    /* td {
+        font-size: 20px;
+    } */
