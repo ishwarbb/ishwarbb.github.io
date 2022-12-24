@@ -8,8 +8,8 @@ const MyHome = () => {
     const constInitCam = initCam;
 
     const animation1 = (event) => {
-        console.log("event = ",event)
-        gsap.to(initCam, { x : constInitCam.x, y : constInitCam.y  , z :constInitCam.z +5  ,
+        // console.log("event = ",event)
+        gsap.to(camera.position, { x : 0, y : constInitCam.y  , z :constInitCam.z +5  ,
             onUpdate: () => {
                 camera.position.set( initCam.x, initCam.y, initCam.z)      
                 controls.update();
@@ -17,11 +17,7 @@ const MyHome = () => {
               duration: 0.5
           })
 
-        // controls.update();
-
-        // initCam = { x : initCam.x, y : initCam.y , z :initCam.z + 5}
-
-        gsap.to(initCam, { x : initCam.x , y : initCam.y + 10 , z :initCam.z -3,
+        gsap.to(initCam, { x : constInitCam.x , y : constInitCam.y + 10 , z :constInitCam.z + 5 ,
             onUpdate: () => {
                 camera.position.set( initCam.x, initCam.y, initCam.z)
                 controls.update();

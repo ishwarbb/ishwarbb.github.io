@@ -1,6 +1,31 @@
 import { Link } from "react-router-dom";
+import { planeMesh, controls } from "./background";
+import gsap from "gsap";
 
 const About = () => {
+
+    const animationToIndex = () => {
+        var initMesh = planeMesh.position;
+        const constinitMesh = initMesh;
+
+            gsap.to(initMesh, { x : constinitMesh.x, y : constinitMesh.y  , z :constinitMesh.z - 51 ,
+                onUpdate: () => {
+                    planeMesh.position.set( initMesh.x, initMesh.y, initMesh.z)      
+                    controls.update();
+                  },
+                  duration: 0.5
+              })
+              
+            gsap.to(initMesh, { x : constinitMesh.x , y : constinitMesh.y , z :constinitMesh.z -15 ,
+                onUpdate: () => {
+                    planeMesh.position.set( initMesh.x, initMesh.y, initMesh.z)
+                    controls.update();
+                  },
+                  duration: 0.5,
+                  delay : 0.5
+              })
+        }
+
     return ( 
         <div className="page">
         <div className="about">
@@ -38,7 +63,7 @@ const About = () => {
                 </p>
             </div>
 
-            <Link to='/index'> Back to Index </Link>
+            <Link to='/index' onClick={animationToIndex}> Back to Index </Link>
         </div>
         </div>
      );
