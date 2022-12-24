@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 const About = () => {
     return ( 
+        <div className="page">
         <div className="about">
             <div className="whoami">
                 <h1>
@@ -38,6 +39,7 @@ const About = () => {
             </div>
 
             <Link to='/index'> Back to Index </Link>
+        </div>
         </div>
      );
 }

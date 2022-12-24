@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 const Skills = () => {
     return ( 
+        <div className="page">
         <div className="skills">
             <h1> Skills </h1>
             <p>
@@ -10,6 +11,7 @@ const Skills = () => {
             </p>
 
             <Link to='/index'> Back to Index </Link>
+        </div>
         </div>
      );
 }

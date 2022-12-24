@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 const ContactMe = () => {
     return ( 
+     <div className="page">
         <div className="contact">
             <h1> So many ways to get in touch </h1>
             <p> Here are some major ones</p>
@@ -19,6 +20,7 @@ const ContactMe = () => {
                 <Link to='/index'> Back to Index </Link>
             </div>
         </div>
+     </div>
      );
 }
  

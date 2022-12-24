@@ -89,7 +89,7 @@ scene.add(light2)
 const planeGeometry = new THREE.PlaneGeometry(300, 300, 182, 188);
 const planeMaterial = new THREE.MeshPhongMaterial({ side: THREE.DoubleSide, flatShading: true, vertexColors: true });
 const planeMesh = new THREE.Mesh(planeGeometry, planeMaterial);
-planeMesh.rotation.set(0,0,2.398999999999847);
+// planeMesh.rotation.set(0,0,2.398999999999847);
 scene.add(planeMesh);
 
 const { array } = planeMesh.geometry.attributes.position;
@@ -182,7 +182,8 @@ animate()
 
 setInterval(() => 
 {
-  console.log(camera.position);
+  // console.log(camera.position);
+  // console.log(camera.rotation);
 },1000);
 
 window.addEventListener('mousemove', (event) => {
