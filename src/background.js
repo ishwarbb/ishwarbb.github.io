@@ -57,11 +57,11 @@ import gsap from 'gsap'
 
 
 const raycaster = new THREE.Raycaster();
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+export const scene = new THREE.Scene();
+export const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 const renderer = new THREE.WebGL1Renderer();
 
-const controls = new OrbitControls(camera, renderer.domElement);
+export const controls = new OrbitControls(camera, renderer.domElement);
 
 camera.position.set(-0.7278575092282116, -8.496655387373522, 3.974732456635354)
 controls.update();
@@ -75,6 +75,8 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(devicePixelRatio);
 
 document.body.appendChild(renderer.domElement);
+// renderer.domElement.style['position'] = 'sticky';
+// renderer.domElement.style['top'] = 0;
 
 const light1 = new THREE.DirectionalLight(0xFF77DD, 1);
 light1.position.set(0, 0, 5);
@@ -116,7 +118,7 @@ for (let i = 0; i < planeMesh.geometry.attributes.position.count; i++) {
   colors.push(0, 0, 0);
 }
 
-console.log(colors)
+// console.log(colors)
 
 planeMesh.geometry.setAttribute('color', new THREE.BufferAttribute(new Float32Array(colors), 3))
 
@@ -174,6 +176,7 @@ function animate() {
 
   planeMesh.rotation.z += 0.0005;
 }
+
 console.log(planeMesh.geometry.attributes.position.randomValues)
 animate()
 
@@ -186,3 +189,4 @@ window.addEventListener('mousemove', (event) => {
   mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
   mouse.y = (event.clientY / window.innerHeight) * (-2) + 1;
 })
+

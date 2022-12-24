@@ -18,67 +18,353 @@ code {
   align-items: center;
   width: 100%;
   margin: 0 auto;
+  pointer-events: none;
 }
 
 .NavBar h1 {
-  color: #b77c0f;
-  margin-left: 50px;
+  /* color: #b77c0f; */
+  color: white;
+
+  margin-left: 4%;
 }
 
 .NavBar .links {
+  pointer-events: all;
   margin-left: auto;
-  margin-right: 50px;
+  margin-right: 2.8%;
 }
 
-.NavBar a {
-  margin-left: 16px;
-  color: #b77c0f;
+.NavBar .links a {
+  margin-left: 8px;
+  margin-right: 8px;
+  /* color: #b77c0f; */
+  color: white;
   text-decoration: none;
   padding: 6px;
 }
 
-.NavBar a:hover {
+.NavBar .links a:hover {
   color: #e4b762;
+  /* font-size: 18px; */
 }
 
 .component {
-  position: absolute;
-  padding: 20px;
+  margin: 0;
 }
 
 .Home{
+  margin-top: 5.5%;
   position: absolute;
   /* display: flex; */
   width: 100%;
   text-align: center;
+  pointer-events: none ;
 }
 
 .Home h1{
-  margin-top:300px;
-  margin-left: 500px;
+  margin-top:16.8%;
   color: white;
-  font-size: xx-large;
+  /* color: black; */
+  font-size: 3.75em;
   text-align: center;
+  transform: translateY(-70%);
 }
 
 .Home p{
-  margin-top:50px;
-  margin-left: 550px;
+  margin-top:2.8%;
   color: white;
+  /* color: black; */
   width: 100%;
-  margin-bottom: 10px;
-  font-size: larger;
+  margin-bottom: 0.6%;
+  font-size: 1.875em;
+  transform: translateY(-130%);
 }
 
 .Home .Button{
-  position: absolute;
-  margin-top: 40px;
-  margin-left: 550px;
-  font-size: x-large;
-  border-color: antiquewhite;
-  border-top: #e4b762;
+  pointer-events: all;
+  margin-top: 4.48%;
+  font-size: 40px;
+  text-align: center;
+  width: 100%;
+  text-decoration: none;
+  transform: translateY(-50px);
 }
 
+.Home .Button a{
+  padding: 15px;
+  padding-left: 25px;
+  padding-right: 25px;
+  border-style:solid;
+  border-radius: 20px;
+  border-color: antiquewhite;
+  color: white;
+  text-decoration: none;
+}
+
+.Home .Button a:visited{
+  color: white;
+}
+
+.Home .Button a:hover{
+  color: orange;
+  border-color: orange;
+  font-size: 45px;
+}
+
+
 .myindex{
-  margin-top: 200px;
+  pointer-events: none;
+  margin-top: 15%;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 60%;
+   padding-left: 20%;
+  padding-right: 20%; 
+  /* justify-content: space-evenly; */
+  justify-content: center;
+  text-align: center;
+}
+
+.myindex a{
+  pointer-events: all;
+  padding: 15px;
+  padding-left: 25px;
+  padding-right: 25px;
+  border-style:solid;
+  border-radius: 20px;
+  border-color: antiquewhite;
+  color: white;
+  text-decoration: none;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  margin-left: 45px;
+  margin-right: 45px;
+  margin-bottom: 100px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.myindex a:hover{
+  /* color: orange; */
+  background-color: #FF77DD;
+  /* opacity: 0.5; */
+  /* border-color: orange; */
+  font-size: larger;
+  width:155px;
+  height: 155px
+}
+
+.about{
+  margin-top: 7%;
+  position: absolute;
+  color: white;
+  margin-left: 10%;
+  margin-right: 10%;
+  text-align: center;
+  pointer-events: none;
+}
+
+.about .whoami h1{
+  font-size: 70px;
+}
+
+.about .whoami p{
+  font-size: 30px;
+}
+
+.about .education{
+  text-align: left;
+}
+
+.about a{
+  pointer-events: all;
+  padding: 15px;
+  padding-left: 25px;
+  padding-right: 25px;
+  border-style:solid;
+  border-radius: 20px;
+  border-color: antiquewhite;
+  color: white;
+  text-decoration: none;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  margin-left: 45px;
+  margin-right: 45px;
+  margin-bottom: 100px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.about a:hover{
+    /* color: orange; */
+    background-color: #FF77DD;
+    /* opacity: 0.5; */
+    /* border-color: orange; */
+    font-size: larger;
+    width:155px;
+    height: 155px
+}
+
+.skills{
+  margin-top: 7%;
+  position: absolute;
+  color: white;
+  margin-right: 10%;
+  text-align: center;
+  pointer-events: none;
+  width: 100%;
+}
+
+.skills  h1{
+  font-size: 70px;
+}
+
+.skills  p{
+  font-size: 30px;
+}
+
+.skills a{
+  pointer-events: all;
+  padding: 15px;
+  padding-left: 25px;
+  padding-right: 25px;
+  border-style:solid;
+  border-radius: 20px;
+  border-color: antiquewhite;
+  color: white;
+  text-decoration: none;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  margin-left: 45px;
+  margin-right: 45px;
+  margin-bottom: 100px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.skills a:hover{
+    /* color: orange; */
+    background-color: #FF77DD;
+    /* opacity: 0.5; */
+    /* border-color: orange; */
+    font-size: larger;
+    width:155px;
+    height: 155px
+}
+
+.contact{
+  margin-top: 7%;
+  position: absolute;
+  color: white;
+  margin-left: 10%;
+  margin-right: 10%;
+  text-align: center;
+  pointer-events: none;
+  width:80%;
+}
+
+.contact h1{
+  font-size: 70px;
+}
+
+.contact p{
+  font-size: 20px;
+}
+
+.contact .dummy a{
+  pointer-events: all;
+  padding: 15px;
+  padding-left: 25px;
+  padding-right: 25px;
+  border-style:solid;
+  border-radius: 20px;
+  border-color: antiquewhite;
+  color: white;
+  text-decoration: none;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  margin-top: 500px;
+  margin-left: 45px;
+  margin-right: 45px;
+  /* margin-bottom: 100px; */
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.contact .dummy a:hover{
+  /* color: orange; */
+  background-color: #FF77DD;
+  /* opacity: 0.5; */
+  /* border-color: orange; */
+  font-size: larger;
+  width:155px;
+  height: 155px
+}
+
+.contact .contactlinks{
+  pointer-events: none;
+  /* margin-top: 15%; */
+  /* position: absolute; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 90%;
+   padding-left: 5%;
+  padding-right: 5%; 
+  /* justify-content: space-evenly; */
+  justify-content: center;
+  text-align: center;
+}
+
+.contact .contactlinks a{
+  pointer-events: all;
+  /* padding: 15px;
+  padding-left: 25px;
+  padding-right: 25px; */
+  border-style:solid;
+  border-radius: 20px;
+  border-color: antiquewhite;
+  color: white;
+  text-decoration: none;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  margin-top: 60px;
+  margin-left: 45px;
+  margin-right: 45px;
+  margin-bottom: 70px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+
+.contact .contactlinks a:hover{
+  /* color: orange; */
+  background-color: #FF77DD;
+  /* opacity: 0.5; */
+  /* border-color: orange; */
+  font-size: larger;
+  width:155px;
+  height: 155px
+}
+
+
+.insta a:before{
+  /* font-family: "Font Awesome 5 Free"; */
+  content: "\f16d";
+  display: inline-block;
+  padding-right: 3px;
+  vertical-align: middle;
+  font-weight: 900;
 }
