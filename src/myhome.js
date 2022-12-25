@@ -1,32 +1,11 @@
 import { Link } from "react-router-dom";
-import gsap from "gsap";
-import { camera, controls } from "./background";
+import { AnimateTo} from "./states";
 
 const MyHome = () => {
-    
-    var initCam = camera.position;
-    const constInitCam = initCam;
 
     const animation1 = (event) => {
-        // console.log("event = ",event)
-        gsap.to(camera.position, { x : 0, y : constInitCam.y  , z :constInitCam.z +5  ,
-            onUpdate: () => {
-                camera.position.set( initCam.x, initCam.y, initCam.z)      
-                controls.update();
-              },
-              duration: 0.5
-          })
-
-        gsap.to(initCam, { x : constInitCam.x , y : constInitCam.y + 10 , z :constInitCam.z + 5 ,
-            onUpdate: () => {
-                camera.position.set( initCam.x, initCam.y, initCam.z)
-                controls.update();
-              },
-              duration: 0.5,
-              delay : 0.5
-          })
-
-        
+        AnimateTo("camera","position","home1",0.5,0);
+        AnimateTo("camera","position","home2",0.5,0.5);
     }
 
     return ( 

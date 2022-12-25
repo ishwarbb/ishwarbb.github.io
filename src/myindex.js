@@ -1,52 +1,16 @@
 import { Link } from "react-router-dom";
-import gsap from "gsap";
-import { planeMesh, controls, camera } from "./background";
+import { AnimateTo } from "./states";
 
 const MyIndex = () => {
 
-    var initMesh = planeMesh.position;
-    const constinitMesh = initMesh;
-    var initCam = camera.position;
-    const constInitCam = initCam;
-
     const animationtohome = () => {
-
-        gsap.to(initCam, { x : 0, y : constInitCam.y , z :constInitCam.z  - 5  ,
-            onUpdate: () => {
-                camera.position.set( initCam.x, initCam.y, initCam.z)      
-                controls.update();
-              },
-              duration: 0.5
-          })
-
-        gsap.to(initCam, { x : constInitCam.x , y : constInitCam.y -10 , z :constInitCam.z - 5 ,
-            onUpdate: () => {
-                camera.position.set( initCam.x, initCam.y, initCam.z)
-                controls.update();
-              },
-              duration: 0.5,
-              delay : 0.5
-          })
+        AnimateTo("camera", "position", "home1", 0.5, 0);
+        AnimateTo("camera", "position", "home0", 0.5, 0.5);
     }
 
     const animation1 = () => {
-
-        gsap.to(initMesh, { x : constinitMesh.x, y : constinitMesh.y  , z :constinitMesh.z - 45 ,
-            onUpdate: () => {
-                planeMesh.position.set( initMesh.x, initMesh.y, initMesh.z)      
-                controls.update();
-              },
-              duration: 0.5
-          })
-          
-        gsap.to(initMesh, { x : constinitMesh.x , y : constinitMesh.y , z :constinitMesh.z + 6 ,
-            onUpdate: () => {
-                planeMesh.position.set( initMesh.x, initMesh.y, initMesh.z)
-                controls.update();
-              },
-              duration: 0.5,
-              delay : 0.5
-          })
+        AnimateTo("planeMesh", "position", "index1", 0.5, 0);
+        AnimateTo("planeMesh", "position", "index2", 0.5, 0.5);
     }
 
     return ( 

@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
+import { AnimateTo } from "./states";
 
 const Skills = () => {
+    const animationToIndex = () => {
+        AnimateTo("planeMesh", "position", "index1", 0.5, 0);
+        AnimateTo("planeMesh", "position", "index0", 0.5, 0.5);
+    }
+
     return ( 
         <div className="page">
         <div className="skills">
@@ -10,7 +16,7 @@ const Skills = () => {
                 Can post a cat pic for almost any situation.
             </p>
 
-            <Link to='/index'> Back to Index </Link>
+            <Link to='/index' onClick={animationToIndex}> Back to Index </Link>
         </div>
         </div>
      );

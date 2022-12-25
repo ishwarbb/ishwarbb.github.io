@@ -375,7 +375,7 @@ code {
   50%  {background-color:blue; left:200px; top:200px;}
   75%  {background-color:green; left:0px; top:200px;}
   100% {background-color:red; left:0px; top:0px;} */
-  from {opacity: 0;}
+  from {opacity:0 }
   to {opacity: 1;}
 }
 
