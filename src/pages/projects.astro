@@ -15,7 +15,7 @@ const projectsList = [
 
 let projectsResponses = []
 try {
-	projectsResponses = await Promise.all(projectsList.map(project => axios.get(`https://api.github.com/repos/dkapur17/${project}`)));
+	projectsResponses = await Promise.all(projectsList.map(project => axios.get(`https://api.github.com/repos/ishwarbb/${project}`)));
 }
 catch (error) {
 	console.error(error);
@@ -32,39 +32,11 @@ const projectsDetails = projectsResponses.map(res => ({
 		image: `${res.data.html_url}/raw/master/assets/Logo.png`
 	}));
 
-// console.log(import.meta.env.MODE);
-
-// const projectsDetails = [
-// 	{
-// 		name: 'DJIControlServer',
-// 		description: 'Embedded ReST Server for controlling DJI Drones',
-// 		url: 'https://github.com/dkapur17/DJIControlServer',
-// 		stars: 5,
-// 		watchers: 1,
-// 		language: 'Kotlin',
-// 		forks: 1,
-// 		image: 'https://github.com/dkapur17/DJIControlServer/raw/master/assets/Logo.png',
-// 	},
-// 	{
-// 		name: 'ReMade',
-// 		description: 'A collection of popular games, remade using the Unity Game Engine',
-// 		url: 'https://github.com/dkapur17/ReMade',
-// 		stars: 3,
-// 		watchers: 1,
-// 		language: 'C#',
-// 		forks: 0,
-// 		image: 'https://github.com/dkapur17/ReMade/raw/master/assets/Logo.png',
-// 	}
-// ]
-
----
 
 <MainLayout pageTitle="Projects" activeItemID="projects">
 	<h1 class="text-5xl font-bold mb-5">Projects</h1>
 	<p class="text-lg font-light">
-		I believe in learning by doing. 
-		As such, a lot of my projects are just me trying to learn something new and applying them to projects that I would actually use myself.
-		Sometimes, I just can't find what I'm looking for, so I just pull a Thanos and make it myself 🪛.
+		Every line of code and every solution is a calculated move toward a larger goal. 
 	</p>
 	<div class="mt-10">
 		<div class="divider"></div> 
@@ -75,5 +47,5 @@ const projectsDetails = projectsResponses.map(res => ({
 			<div class="divider"></div>
 		</div>}
 	</div>
-	There's many more random things I've worked on over at my <a href="https://github.com/dkapur17" class="text-cyan-400" target="_blank">GitHub</a>, so feel free to check them out!
+	There's many more random things I've worked on over at my <a href="https://github.com/ishwarbb" class="text-cyan-400" target="_blank">GitHub</a>, so feel free to check them out!
 </MainLayout>

@@ -1,6 +1,6 @@
 const data = {
-    "role": "Data Scientist",
-    "company": "Microsoft IDC",
+    "role": "Senior Undergraduate",
+    "company": "International Institute of Information Technology (IIITH)",
     "city": "Hyderabad"
 };
 
