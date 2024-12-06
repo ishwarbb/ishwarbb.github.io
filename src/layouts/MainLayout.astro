@@ -1,0 +1,66 @@
+---
+import Header from '../components/Header.astro';
+import PageContent from '../components/PageContent.astro';
+
+const {pageTitle, activeItemID, showSidebar=true} = Astro.props;
+
+import '../styles/global.css';
+
+---
+
+<html data-theme="dark">
+    <head>
+        <script is:inline>
+            if (localStorage.getItem("theme") === null) {
+              document.documentElement.setAttribute("data-theme", "dracula");
+            } else
+              document.documentElement.setAttribute(
+                "data-theme",
+                localStorage.getItem("theme")
+              );
+          </script>
+          <script>
+            import { themeChange } from 'theme-change';
+            themeChange();
+          </script>
+        <meta charset="utf-8" />
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔮</text></svg>">
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+        <title>Dhruv Kapur | {pageTitle}</title>
+    </head>
+    <body>
+        <Header/>
+        <PageContent {activeItemID} {showSidebar}>
+            <slot/>
+        </PageContent>
+    </body>
+</html>
+
+<style>
+    body {
+        user-select: none;
+    }
+    * {
+      scrollbar-width: thin;
+    }
+
+    /* Chrome, Edge, and Safari */
+    *::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    *::-webkit-scrollbar-track {
+      border-radius: 3px;
+      background: #555;
+    }
+
+    *::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background: #aaa;
+    }
+    
+    *::-webkit-scrollbar-thumb:hover {
+      background: #888;
+    }
+</style>

@@ -1,0 +1,35 @@
+---
+import { Image } from '@astrojs/image/components';
+import SideBarFooter from './SideBarFooter.astro';
+
+const {activeItemID} = Astro.props;
+const activeClass = 'bg-base-300';
+---
+<div class="drawer-side z-20">
+    <label for="my-drawer" class="drawer-overlay"></label> 
+   <div class="h-full bg-base-200 flex flex-col">
+    <ul class="menu p-4 w-80 text-base-content">
+      <div class="w-full mt-5 mb-6">
+        <a href="/">
+          <div class="avatar transition ease-in-out hover:scale-[102%] flex flex-row justify-center">
+            <div class="w-[8.5rem]">
+              <Image class="mask mask-circle" aspectRatio="1:1" format="webp" width={300} height={300} src="/images/profile.png" alt="Profile image" />
+            </div>
+          </div>
+        </a>
+      </div>
+      <!-- Sidebar content here -->
+      <li><a id="home" href="/">Home</a></li>
+      <li><a id="projects" href="/projects">Projects</a></li>
+      <li><a id="cv" href="/cv">CV</a></li>
+      <li><a id="blog" href="/blog/">Blog</a></li>
+    </ul>
+    <SideBarFooter />
+   </div>
+</div>
+
+
+<script define:vars={{activeItemID, activeClass}}>
+  const activeItemElements = document.getElementById(activeItemID);
+  activeItemElements && activeItemElements.classList.add(activeClass);
+</script>

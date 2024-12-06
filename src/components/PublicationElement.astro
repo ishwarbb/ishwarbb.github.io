@@ -1,0 +1,22 @@
+---
+import { Icon } from "astro-icon";
+const {title, authors, venue, link} = Astro.props;
+---
+
+<div class="flex">
+    <div class="education__time">
+        <span class="w-4 h-4 bg-primary block rounded-full mt-1"></span>
+      </div>
+      <div class="experience__data bd-grid px-5">
+        <h3 class="font-semibold mb-1">{title}</h3>
+        <div class="font-light text-sm">{authors}</div>
+        <div class="font-semi-bold text-md">{venue} 
+            <a href={link} target="_blank">
+                <Icon class="inline-block" name="fluent:open-16-filled" size="20"/>
+            </a>
+        </div>
+        <p class="my-2 text-justify">
+          <slot />
+        </p>
+      </div>
+</div>

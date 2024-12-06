@@ -1,0 +1,46 @@
+---
+import {Image} from '@astrojs/image/components';
+const {project} = Astro.props;
+---
+
+<div
+  class="rounded-lg bg-base-100 hover:bg-base-200 hover:shadow-xl transition ease-in-out hover:scale-[102%]"
+>
+  <a href={project.url} target="_blank">
+    <div class="hero-content flex-col md:flex-row">
+      {
+        project.image && (
+          <Image
+            src={project.image}
+            aspectRatio="1:1"
+            width={600}
+            format="webp"
+            alt={project.name}
+            class="max-w-full md:max-w-[13rem] rounded-lg"
+          />
+        )
+      }
+      <div class="grow w-full">
+        <h1 class="text-xl font-bold">
+          {project.name}
+        </h1>
+        <div class="badge badge-secondary badge-outline my-2">{project.language}</div>
+        <p class="py-1 text-xl">{project.description}</p>
+        <div class="card-actions">
+            <div class="flex flex-row mt-2">
+                <span class="mx-2 tooltip font-bold badge badge-lg" data-tip={`${project.stars} Star${project.stars == 1 ? "" : "s"}`}>
+                    <p class="text-sm">⭐ {project.stars}</p>
+                </span>
+                <span class="mx-2 tooltip font-bold badge badge-lg" data-tip=`${project.watchers} Watcher${project.watchers == 1 ? "" : "s"}`>
+                    <p class="text-sm">👀 {project.watchers}</p>
+                </span>
+                <span class="mx-2 tooltip font-bold badge badge-lg" data-tip={`${project.forks} Fork${project.forks == 1 ? "" : "s"}`}>
+                    <p class="text-sm">🍴 {project.forks}</p>
+                </span>
+            </div>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+<div class="divider"></div> 

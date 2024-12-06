@@ -1,0 +1,35 @@
+---
+import {Image} from '@astrojs/image/components';
+const {blog} = Astro.props;
+---
+
+<div class="rounded-lg bg-base-100 hover:bg-base-200 hover:shadow-xl transition ease-in-out hover:scale-[102%]">
+    <a href={`/blog/${blog.slug}`}>
+        <div class="hero-content flex-col md:flex-row">
+          {
+            blog.data.heroImage && (
+              <Image
+                src={blog.data.heroImage}
+                aspectRatio="16:9"
+                width={600}
+                format="webp"
+                alt={blog.data.title}
+                class="max-w-full md:max-w-[13rem] rounded-lg"
+              />
+            )
+          }
+          <div class="grow w-full">
+            <h1 class="text-2xl font-bold">
+              {blog.data.title}
+            </h1>
+            <div class="flex flex-row items-center mt-1">
+                {
+                    blog.data.tags && blog.data.tags.map(tag => <div class="badge badge-secondary badge-outline my-2 mr-2">{tag}</div>)
+                }
+            </div>
+            <p class="py-1 text-lg font-light">{blog.data.description}</p>
+          </div>
+        </div>
+      </a>
+</div>
+<div class="divider"></div>

@@ -1,0 +1,64 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+import TrueIntro from '../components/TrueIntro.astro';
+import EasterEgg from '../components/EasterEgg.astro';
+
+import ImageGrid from '../components/ImageGrid.astro';
+
+---
+
+<MainLayout pageTitle="Home" activeItemID="home">
+	<div class="text-xl hover:cursor-pointer" id="easterEggRevealer">Hello There!</div>
+	<div id="#true-intro" class="block">
+		<TrueIntro />
+	</div>
+	<div id="#easter-egg" class="hidden">
+		<EasterEgg/>
+	</div>
+	<ImageGrid/>
+
+	<div class="my-5">
+		<h1 class="text-3xl font-semibold">Looking for my old site?</h1>
+		<p class="text-lg font-thin mt-3">A relic of the past. 
+			All shitty design choices were made by First Year me, who didn't know any better, though the assignment requirements didn't help with it either. 
+			Still, don't have the heart to take it down. You can find it <a class="text-cyan-400" href="https://web.iiit.ac.in/~dhruv.kapur", target="_blank">here</a>.</p>
+	</div>
+</MainLayout>
+
+
+<script>
+	const revealer = document.getElementById("easterEggRevealer");
+	const trueIntro = document.getElementById("#true-intro");
+	const easterEgg = document.getElementById("#easter-egg");
+	let revealed = false;
+	revealer.addEventListener("click", () => {
+		revealed = !revealed;
+		if(revealed) {
+			trueIntro.classList.remove("block");
+			trueIntro.classList.add("hidden");
+			easterEgg.classList.remove("hidden");
+			easterEgg.classList.add("block");
+		}
+		else {
+			trueIntro.classList.remove("hidden");
+			trueIntro.classList.add("block");
+			easterEgg.classList.remove("block");
+			easterEgg.classList.add("hidden");
+		}
+	})
+</script>
+
+<style>
+	#easterEggRevealer {
+		animation: jump-shaking 0.83s infinite;
+	}
+	@keyframes jump-shaking {
+		0% { transform: translateX(0) }
+		25% { transform: translateY(2px) }
+		50% { transform: translateY(-4px)}
+		75% { transform: translateY(2px)}
+		100% { transform: translateY(0) }
+	}
+
+</style>

@@ -1,0 +1,16 @@
+---
+import data from '../data.js';
+
+const vowelStart = ['a', 'e', 'i', 'o', 'u'].some((vowel) => {
+    return data.role.toLowerCase().startsWith(vowel);
+});
+---
+
+<h1 class="text-5xl font-bold my-5" id="easterEgg1">I'm Dhruv Kapur</h1>
+<h1 class="text-3xl font-semibold mt-3 mb-8" id="easterEgg2">Software Engineer and Data Scientist</h1>
+<p class="text-xl">I'm currently working as {vowelStart ? 'an':'a'} <b>{data.role}</b> at <b>{data.company}, {data.city}</b>. 
+My area of research is focused on Deep Reinforcement Learning, though LLMs are getting pretty interesting too 👀. 
+I'm also an electronics enthusiast, who loves tinkering with stuff, and low level programming. 
+I love learning new things, and if I find that if I have a specific need, I make a tool for it from scratch, because why not?
+But I'm not <em>*totally*</em> a nerd 🤓. I love playing Football ⚽, Rock Climbing 🧗‍♂️, Board Games 🃏 and I also play the Ukulele 🎵. 
+</p>

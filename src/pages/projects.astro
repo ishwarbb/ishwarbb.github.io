@@ -1,0 +1,79 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import axios from 'axios';
+
+
+const projectsList = [
+	"DJIControlServer",
+	"DJIControlClient",
+	"ReMade",
+	"Kontrolla",
+	"WireDoge",
+]
+
+
+let projectsResponses = []
+try {
+	projectsResponses = await Promise.all(projectsList.map(project => axios.get(`https://api.github.com/repos/dkapur17/${project}`)));
+}
+catch (error) {
+	console.error(error);
+	projectsResponses = [];
+}
+const projectsDetails = projectsResponses.map(res => ({
+		name: res.data.name,
+		description: res.data.description,
+		url: res.data.html_url,
+		stars: res.data.stargazers_count,
+		watchers: res.data.watchers,
+		language: res.data.language,
+		forks: res.data.forks,
+		image: `${res.data.html_url}/raw/master/assets/Logo.png`
+	}));
+
+// console.log(import.meta.env.MODE);
+
+// const projectsDetails = [
+// 	{
+// 		name: 'DJIControlServer',
+// 		description: 'Embedded ReST Server for controlling DJI Drones',
+// 		url: 'https://github.com/dkapur17/DJIControlServer',
+// 		stars: 5,
+// 		watchers: 1,
+// 		language: 'Kotlin',
+// 		forks: 1,
+// 		image: 'https://github.com/dkapur17/DJIControlServer/raw/master/assets/Logo.png',
+// 	},
+// 	{
+// 		name: 'ReMade',
+// 		description: 'A collection of popular games, remade using the Unity Game Engine',
+// 		url: 'https://github.com/dkapur17/ReMade',
+// 		stars: 3,
+// 		watchers: 1,
+// 		language: 'C#',
+// 		forks: 0,
+// 		image: 'https://github.com/dkapur17/ReMade/raw/master/assets/Logo.png',
+// 	}
+// ]
+
+---
+
+<MainLayout pageTitle="Projects" activeItemID="projects">
+	<h1 class="text-5xl font-bold mb-5">Projects</h1>
+	<p class="text-lg font-light">
+		I believe in learning by doing. 
+		As such, a lot of my projects are just me trying to learn something new and applying them to projects that I would actually use myself.
+		Sometimes, I just can't find what I'm looking for, so I just pull a Thanos and make it myself 🪛.
+	</p>
+	<div class="mt-10">
+		<div class="divider"></div> 
+		{(projectsDetails.length > 0) ? projectsDetails.map(project => (
+			<ProjectCard {project} />
+		)): <div>
+			<h1 class="text-xl text-center font-semibold">Got Rate limited by GitHub 😓</h1>
+			<div class="divider"></div>
+		</div>}
+	</div>
+	There's many more random things I've worked on over at my <a href="https://github.com/dkapur17" class="text-cyan-400" target="_blank">GitHub</a>, so feel free to check them out!
+</MainLayout>
