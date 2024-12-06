@@ -3,13 +3,11 @@ import MainLayout from '../layouts/MainLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import axios from 'axios';
 
-
 const projectsList = [
 	"KiD3"
-]
+];
 
-
-let projectsResponses = []
+let projectsResponses = [];
 try {
 	projectsResponses = await Promise.all(projectsList.map(project => axios.get(`https://api.github.com/repos/ishwarbb/${project}`)));
 }
@@ -27,7 +25,7 @@ const projectsDetails = projectsResponses.map(res => ({
 		forks: res.data.forks,
 		image: `${res.data.html_url}/raw/master/assets/Logo.png`
 	}));
-
+---
 
 <MainLayout pageTitle="Projects" activeItemID="projects">
 	<h1 class="text-5xl font-bold mb-5">Projects</h1>
@@ -38,10 +36,12 @@ const projectsDetails = projectsResponses.map(res => ({
 		<div class="divider"></div> 
 		{(projectsDetails.length > 0) ? projectsDetails.map(project => (
 			<ProjectCard {project} />
-		)): <div>
-			<h1 class="text-xl text-center font-semibold">Got Rate limited by GitHub 😓</h1>
-			<div class="divider"></div>
-		</div>}
+		)) : (
+			<div>
+				<h1 class="text-xl text-center font-semibold">Got Rate limited by GitHub 😓</h1>
+				<div class="divider"></div>
+			</div>
+		)}
 	</div>
 	There's many more random things I've worked on over at my <a href="https://github.com/ishwarbb" class="text-cyan-400" target="_blank">GitHub</a>, so feel free to check them out!
 </MainLayout>
