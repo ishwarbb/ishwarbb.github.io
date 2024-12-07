@@ -4,21 +4,24 @@ import BlogCard from '../components/BlogCard.astro';
 import EmptyBlogComponent from '../components/EmptyBlogComponent.astro';
 import { getCollection } from 'astro:content';
 
-export async function getStaticPaths({ paginate }) {
+export async function getStaticProps() {
     const posts = await getCollection("blog");
     posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-    return paginate(posts, { pageSize: 10 });
+    return { props: { posts } };
 }
 
-const { page } = Astro.props;
+const { posts } = Astro.props;
 ---
 
 <MainLayout pageTitle="Blog" activeItemID="blog">
     <h1 class="text-5xl font-bold mb-10">Blog</h1>
     <div class="mt-10">
-        <div class="divider"></div> 
-        {(page?.data?.length > 0) ? page.data.map(blog => (
-            <BlogCard {blog} />
-        )) : <EmptyBlogComponent/>}
+        <div class="divider"></div>
+        {(posts.length > 0) 
+          ? posts.map(blog => (
+              <BlogCard blog={blog} />
+          ))
+          : <EmptyBlogComponent />
+        }
     </div>
 </MainLayout>
