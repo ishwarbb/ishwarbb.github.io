@@ -1,5 +1,4 @@
 ---
-import { marked } from 'marked';
 import MainLayout from '../layouts/MainLayout.astro';
 import BlogCard from '../components/BlogCard.astro';
 import EmptyBlogComponent from '../components/EmptyBlogComponent.astro';
@@ -11,28 +10,25 @@ const hackmdUrls = [
 
 export async function getStaticProps() {
   try {
+    const { default: marked } = await import('marked'); // Dynamically import marked
     const posts = await Promise.all(
       hackmdUrls.map(async (url) => {
         const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error(`Failed to fetch content from: ${url}`);
-        }
-
         const markdownContent = await response.text();
-        const htmlContent = marked.parse(markdownContent); // Parse Markdown to HTML
+        const htmlContent = marked(markdownContent);
 
         return { url, htmlContent };
       })
     );
 
-    console.log('Fetched parsed blog posts:', posts);
-
+    console.log("Fetched posts:", posts);
     return { props: { posts } };
   } catch (error) {
-    console.error('Error fetching posts from HackMD.io:', error);
+    console.error("Error fetching posts from HackMD.io", error);
     return { props: { posts: [] } };
   }
 }
+
 
 const { posts } = Astro.props;
 ---
