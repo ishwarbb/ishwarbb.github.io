@@ -1,31 +1,44 @@
----
 import MainLayout from '../layouts/MainLayout.astro';
 import BlogCard from '../components/BlogCard.astro';
 import EmptyBlogComponent from '../components/EmptyBlogComponent.astro';
-import { getCollection } from 'astro:content';
+
+// URL for your HackMD.io notes - replace these with your actual pages
+const hackmdUrls = [
+  "https://hackmd.io/@wTl9B_94Sc-S-cmVNccN3A/SyKYZyYm1l"
+];
 
 export async function getStaticProps() {
-    const posts = await getCollection("blog");
-    posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-    console.log(posts); // Log the posts to the console
-    return { props: { posts: posts || ["Meow"] } };
+  try {
+    // Fetch all markdown pages from HackMD
+    const posts = await Promise.all(
+      hackmdUrls.map(async (url) => {
+        const response = await fetch(url);
+        const markdownContent = await response.text();
+        
+        return { url, markdownContent }; // Return raw Markdown or parsed content
+      })
+    );
+
+    console.log("Fetched posts:", posts);
+    return { props: { posts } };
+  } catch (error) {
+    console.error("Error fetching posts from HackMD.io", error);
+    return { props: { posts: [] } };
+  }
 }
 
 const { posts } = Astro.props;
 ---
 
 <MainLayout pageTitle="Blog" activeItemID="blog">
-    <h1 class="text-5xl font-bold mb-10">Blog</h1>
-    <div class="mt-10">
-        <div class="divider"></div>
-        {(posts && posts.length > 0) 
-          ? posts.map(blog => (
-              <BlogCard blog={blog} />
-          ))
-          : <EmptyBlogComponent />
-        }
-    </div>
-    <div>
-    {posts}
-    </div>
+  <h1 class="text-5xl font-bold mb-10">Blog</h1>
+  <div class="mt-10">
+    <div class="divider"></div>
+    {posts.length > 0
+      ? posts.map(post => (
+          <BlogCard blog={{ markdownContent: post.markdownContent }} />
+        ))
+      : <EmptyBlogComponent />
+    }
+  </div>
 </MainLayout>
