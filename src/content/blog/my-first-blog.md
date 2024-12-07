@@ -1,6 +1,6 @@
 ---
 title: "My First Blog Post"
-pubDate: "2024-12-07
+pubDate: "2024-12-07"
 description: "An introductory blog post about my journey in AI and research."
 tags: ["AI", "Research", "Machine Learning"]
 ---
