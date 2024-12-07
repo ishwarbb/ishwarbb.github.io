@@ -8,7 +8,7 @@ export async function getStaticProps() {
     const posts = await getCollection("blog");
     posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
     console.log(posts); // Log the posts to the console
-    return { props: { posts: posts || [] } };
+    return { props: { posts: posts || ["Meow"] } };
 }
 
 const { posts } = Astro.props;
